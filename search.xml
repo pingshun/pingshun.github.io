@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[Xcode7--免证书真机调试]]></title>
+    <url>%2F2017%2F09%2F22%2Fdeploy-ios-app-to-device%2F</url>
+    <content type="text"><![CDATA[Xcode7之前，想要真机调试，必须花99刀购买开发者账号，而且步骤繁琐，需要下载证书。随着Xcode7的推出，大幅度的简化了真机调试的步骤，对ios开发工作者和正在学习ios开发的众多码农们，可以说是个不小的福利。现在，我就详细的向大家介绍一下如何免证书真机调试。 第一步：准备工作（Apple ID,iphone手机,Xcode7) Apple ID 申请网址：https://appleid.apple.com/cn（Apple ID作为在苹果官网执行任何操作的通行证，申请步骤非常简单）; iphone手机 这个就不用多说了，真机调试没有手机就白谈了; Xcode7 可以从AppStore中下载; 第二步：打开Xcode 选择屏幕左上角Xcode-&gt; PReferencese 第三部：选择Account 点击左下角的+按钮登陆Apple ID 第四步：登陆你的Apple ID 第五步:登陆成功之后，在右侧会显示小伙伴的账号在iOS和Mac上都是free的，双击这一列（或者点击选择view details） 第五步：这里需要一定时间获取你的Apple ID的开发者信息，点击iOS Development 后面的create ，然后稍等片刻，直到create按钮不见了。 第六步：到了这里基本上已经结束—-开始真机测试：打开需要真机测试的项目插上手机（Xcode第一次链接手机会很慢，可以选择Xcode菜单栏中的window-&gt;devices查看手机是否准备就绪了），选择项目文件-&gt; General - &gt; Team -&gt; 选择你属于你的Apple ID ，再点击Team 下面的fix issue修复Team 正下方的警告。 第七步：最后一个问题，你最终会发现Xcode会弹出一个框（process launch failed: Security），这里需要打开你手机的设置-&gt;通用- &gt; 描述文件-&gt; 选择你的Apple ID - &gt; 点击信任 至此，真机调试的过程就搞好了，是不是比以前简单多了？？？ 转载于 Xcode7–免证书真机调试]]></content>
+      <tags>
+        <tag>ios</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[docker 常用命令备忘]]></title>
+    <url>%2F2017%2F09%2F06%2Fuse-docker%2F</url>
+    <content type="text"><![CDATA[[不太]常用的一些docker命令 container相关操作 启动停止container [docker start/stop/restart]docker start [OPTIONS] CONTAINER [CONTAINER…]:启动一个或多个已经被停止的容器docker stop [OPTIONS] CONTAINER [CONTAINER…]:停止一个运行中的容器docker restart [OPTIONS] CONTAINER [CONTAINER…]:重启容器 创建container [docker run／create] docker run [OPTIONS] IMAGE [COMMAND] [ARG…] 创建一个新的容器并运行一个命令OPTIONS说明： -a stdin: 指定标准输入输出内容类型，可选 STDIN/STDOUT/STDERR 三项； -d: 后台运行容器，并返回容器ID； -i: 以交互模式运行容器，通常与 -t 同时使用； -t: 为容器重新分配一个伪输入终端，通常与 -i 同时使用； –name=”nginx-lb”: 为容器指定一个名称； –dns 8.8.8.8: 指定容器使用的DNS服务器，默认和宿主一致； –dns-search example.com: 指定容器DNS搜索域名，默认和宿主一致； -h “mars”: 指定容器的hostname； -e username=”ritchie”: 设置环境变量； –env-file=[]: 从指定文件读入环境变量； –cpuset=”0-2” or –cpuset=”0,1,2”: 绑定容器到指定CPU运行； -m :设置容器使用内存最大值； –net=”bridge”: 指定容器的网络连接类型，支持 bridge/host/none/container: 四种类型； –link=[]: 添加链接到另一个容器； –expose=[]: 开放一个端口或一组端口；实例: 使用镜像nginx:latest以后台模式启动一个容器,将容器的80端口映射到主机的80端口,主机的目录/data映射到容器的/data docker run -p 80:80 -v /data:/data -d nginx:latest docker create [OPTIONS] IMAGE [COMMAND] [ARG…] 创建一个新的容器但不启动它 用法同 docker run Docker exec 命令docker exec [OPTIONS] CONTAINER COMMAND [ARG…] 在运行的容器中执行命令OPTIONS说明： -d :分离模式: 在后台运行 -i :即使没有附加也保持STDIN 打开 -t :分配一个伪终端实例： docker exec -it mynginx /bin/sh 在容器mynginx中开启一个交互模式的终端 docker exec mynginx ls /tmp/ 在mynginx里ls ／tmp]]></content>
+      <tags>
+        <tag>docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[使用hexo写一篇博客]]></title>
+    <url>%2F2017%2F09%2F05%2Fuse-hexo%2F</url>
+    <content type="text"><![CDATA[我发现我已经健忘到了无可救药的地步了…前几天刚弄好的博客，今天想记点东西，居然忘了如何写一篇新的文章了… 崩溃ing 先把如何使用hexo添加博文记录下来，以后有时间再慢慢整理吧: 添加博文 hexo new ‘blog_title’ 位置: ‘source/_posts/blog_title.md’，编辑内容 hexo g; #生成静态文件hexo d; #部署 添加页面 hexo new page “” 位置: ‘source//index.md’, 编辑内容 修改’themes//_config.yml’里的‘menu’项，添加一项 ‘: /’ 我用的是Next主题，可以在’themes//_config.yml’的menu icon项里指定图标，然后在相应的语言文件‘themes//languages/.yml’里设置菜单项的当前语言名称 hexo g; #生成静态文件hexo d; #部署]]></content>
+      <tags>
+        <tag>hexo</tag>
+        <tag>技术</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[使用ssh用户配置文件config来简化你的ssh]]></title>
+    <url>%2F2017%2F08%2F23%2Fuse-ssh-config%2F</url>
+    <content type="text"><![CDATA[有时候我们用ssh去连接server的时候经常会带上很多参数(port, username…),有的时候需要连接一个超级长的HostName，有的时候需要连接不同的server使用不同的密钥文件…这些需求，都可以用ssh的用户配置文件来简化，这个文件位置：~/.ssh/config（没有的话自己建一个就行了）这个配置文件的用法：Host 别名 HostName 主机名 Port 端口 User 用户名 IdentityFile 密钥文件]]></content>
+      <tags>
+        <tag>技术</tag>
+        <tag>ssh</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[老OutMan开始忘事了...]]></title>
+    <url>%2F2017%2F08%2F23%2Fmy-first-post%2F</url>
+    <content type="text"><![CDATA[听起来有点悲伤，但不得不承认，年纪大了之后就慢慢开始忘事了…很多东西用过之后再用的时候，会发现已经完全忘了怎么用了，于是乎又像第一次用一样重新度娘重新google，这个过程实在太不友好…作为一个程序猿，发现脑子不再那么好用是一件很痛苦的事情，但同事老王说这是正常的物理规律，不必太在意。老王比我年长那么多，也算是过来人，既然是过来人，那我就当是人生经验吧。想到这里，我总算有了一丢丢安慰。老祖宗说滴水之恩当涌泉相报，看在我确实得到了一丢丢的安慰的份上，我也就不再计较老王经常“忘了”还我钱的事儿了…人类在物理规律面前总是无能为力，我也是。既然没办法像以前那样把东西牢记在脑子里，那就写在纸上吧。所以我开了个这个博客，记录一些自己觉得有用的东西，就当一个在线的记事本吧。]]></content>
+      <tags>
+        <tag>心得</tag>
+      </tags>
+  </entry>
+</search>
