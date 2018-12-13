@@ -88,3 +88,9 @@ deploy:
     ignore_pattern:
       public: .
       node_modules: .
+
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
